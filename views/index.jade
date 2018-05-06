@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1= title
+
+  |Example:
+  ul
+    each num in array
+      li= num
+
+  |Output: 1,4,3,5,2,6
+
+  br
+  br
+  | Now you try (use ',' between numbers):
+  br
+  br
+
+  label # of arrays
+  input(type="text", id="NumberOfArrays" value="2")
+  button(onClick='addArray()')
+    label Refresh
+  br
+  br
+  form.arrayForm(name='array-input', method="post")
+    div.input
+      span.label Array 1:
+      input(type="text", name="array1")
+    div.input
+      span.label Array 2:
+      input(type="text", name="array2")
+    div.actions
+      input(type="submit", value="submit")
+    br
+    if numbers
+       #{numbers}
+  script.
+    link(rel = 'script', href = '/javascripts/app.css')
